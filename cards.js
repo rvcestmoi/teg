@@ -1,3 +1,5 @@
+
+
 function displayCards() {
     const cardsDiv = document.getElementById('cards-in-play');
     cardsDiv.innerHTML = '<h3>Cards in Play:</h3>';
@@ -20,8 +22,21 @@ function displayCards() {
         div.dataset.index = index;
         cardsDiv.appendChild(div);
     });
+
+    updatePlayTurnButton();
 }
 
+function takeCard(index) {
+    const takenCard = cards[index]; // Enregistrer la carte prise
+    if (takenCard.iaShip) {
+        iaShips++; // Retourner le vaisseau au plateau de l'IA
+    }
+    cards.splice(index, 1); // Enlever la carte
+    displayCards(); // Mettre à jour l'affichage après avoir pris une carte
+    displayNextCardOptions(); // Afficher les options pour la carte suivante
+    updateIaShipsOnBoard(); // Mettre à jour l'affichage des vaisseaux IA sur le plateau
+    updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
+}
 
 function displayNextCardOptions(initial = false) {
     const nextCardsDiv = document.getElementById('next-cards');
@@ -75,18 +90,6 @@ function filterCards() {
     });
 }
 
-function takeCard(index) {
-    const takenCard = cards[index]; // Enregistrer la carte prise
-    if (takenCard.iaShip) {
-        iaShips++; // Retourner le vaisseau au plateau de l'IA
-    }
-    cards.splice(index, 1); // Enlever la carte
-    displayCards(); // Mettre à jour l'affichage après avoir pris une carte
-    displayNextCardOptions(); // Afficher les options pour la carte suivante
-    updateIaShipsOnBoard(); // Mettre à jour l'affichage des vaisseaux IA sur le plateau
-}
-
-
 function selectNextCard(index, initial = false) {
     if (initial) {
         cards.push(availableCards[index]);
@@ -109,8 +112,9 @@ function selectNextCard(index, initial = false) {
             document.getElementById('next-card-selection').style.display = 'none'; // Cacher la sélection de cartes
         }
     }
-}
 
+    updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
+}
 
 function replaceCardAt(position) {
     const nextCardsDiv = document.getElementById('next-cards');
@@ -136,6 +140,7 @@ function replaceCardAt(position) {
     });
 
     document.getElementById('next-card-selection').style.display = 'block';
+    updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
 }
 
 function selectReplacementCard(index, position) {
@@ -148,4 +153,15 @@ function selectReplacementCard(index, position) {
     filterCards();
 
     document.getElementById('next-card-selection').style.display = 'none'; // Cacher la sélection de cartes
+    updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
 }
+
+function updatePlayTurnButton() {
+    const playTurnButton = document.getElementById('play-turn');
+    playTurnButton.disabled = (cards.length < maxCardsOnBoard);
+}
+
+// Ajoutez cette ligne après la définition de toutes les fonctions pour initialiser le bouton
+document.addEventListener("DOMContentLoaded", () => {
+    updatePlayTurnButton();
+});
