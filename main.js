@@ -21,12 +21,22 @@ const maxCardsOnBoard = 4;
 const maxResources = 5;
 
 const availableCards = [
-    { name: 'Arcalon Majoris', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 2 Culture', points: 2, progress: 0, maxProgress: 5, iaShip: false },
-    { name: 'Zantos-6', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 2 Energy', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-    { name: 'Voltan-Prime', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Move a ship 2 spaces', points: 1, progress: 0, maxProgress: 6, iaShip: false },
-    { name: 'Xyler-9', type: 'Culture', colonizationType: 'Économie', effect: 'Increase influence by 2', points: 4, progress: 0, maxProgress: 3, iaShip: false },
-    { name: 'Raxxon', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 1 Culture and 1 Energy', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-    { name: 'Dercyllius', type: 'Énergie', colonizationType: 'Économie', effect: 'Move a ship 3 spaces', points: 2, progress: 0, maxProgress: 6, iaShip: false },
-    { name: 'Medea', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Colonize a planet for free', points: 5, progress: 0, maxProgress: 3, iaShip: false },
-    { name: 'Nyx-14', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 4, progress: 0, maxProgress: 5, iaShip: false }
+    { name: 'Andellouxian6', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 2 Culture', points: 5, progress: 0, maxProgress: 5, iaShip: false },
+    { name: 'Aughmoore', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 2 Energy', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+    { name: 'Birkomius', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Move a ship 2 spaces', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+    { name: 'Bisschop', type: 'Énergie', colonizationType: 'Économie', effect: 'Increase influence by 2', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+    { name: 'Brumbaugh', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 1 Culture and 1 Energy', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+    { name: 'Bsw101', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Move a ship 3 spaces', points: 5, progress: 0, maxProgress: 5, iaShip: false },
+    { name: 'Clj0517', type: 'Énergie', colonizationType: 'Économie', effect: 'Colonize a planet for free', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+    { name: 'Drewkaiden', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+	{ name: 'Gleamzanier', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 5, progress: 0, maxProgress: 5, iaShip: false },
+	{ name: 'Gort', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'Gyore', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'Helios', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+	{ name: 'Hoefker', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+	{ name: 'Jac110912', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 5, progress: 0, maxProgress: 5, iaShip: false },
+	{ name: 'Jakks', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+	{ name: 'Jorg', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Kwidow', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false }
+	
 ];

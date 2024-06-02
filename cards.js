@@ -9,9 +9,7 @@ function displayCards() {
         let shipIndicator = card.iaShip ? " <span style='color: red;'>🚀</span> " : "";
         div.innerHTML = `
             <strong>${card.name}${shipIndicator}</strong><br>
-            ${card.effect}<br>
-            Type: ${card.type}<br>
-            Colonization: ${card.colonizationType}<br>
+            Type: ${card.type}/Col.: ${card.colonizationType}<br>            
             Points: ${card.points}<br>
             Progress: ${card.progress}/${card.maxProgress}
             <div class="progress-bar">
@@ -47,9 +45,7 @@ function displayNextCardOptions(initial = false) {
         let shipIndicator = card.iaShip ? " <span style='color: red;'>🚀</span> " : "";
         div.innerHTML = `
             <strong>${card.name}${shipIndicator}</strong><br>
-            ${card.effect}<br>
-            Type: ${card.type}<br>
-            Colonization: ${card.colonizationType}<br>
+            Type: ${card.type}/Col.: ${card.colonizationType}<br>  
             Points: ${card.points}<br>
             Progress: ${card.progress}/${card.maxProgress}
             <div class="progress-bar">
