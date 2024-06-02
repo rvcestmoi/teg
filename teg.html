@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny Epic Galaxy - Automate</title>
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .progress-bar {
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            height: 20px;
+            width: 100%;
+            margin-top: 5px;
+            position: relative;
+        }
+        .progress {
+            background-color: #4caf50;
+            height: 100%;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tiny Epic Galaxy - Automate</h1>
+    <div id="game-board">
+        <div id="cards-in-play"></div>
+        <div id="next-card-selection" style="display: none;">
+            <h3>Sélectionner une carte de remplacement :</h3>
+            <div id="next-cards"></div>
+            <input type="text" id="search-bar" placeholder="Rechercher une carte..." oninput="filterCards()">
+        </div>
+        <div>
+            <h3>Vaisseaux IA sur le plateau : <span id="ia-ships-on-board"></span></h3>
+            <h3>Points de Victoire : <span id="victory-points"></span></h3>
+            <h3>Niveau de Colonisation : <span id="colonization-level"></span></h3>
+            <h3>Énergie : <div id="energy-progress" class="progress-bar"><div class="progress"></div></div></h3>
+            <h3>Culture : <div id="culture-progress" class="progress-bar"><div class="progress"></div></div></h3>
+        </div>
+        <button id="play-turn" onclick="playTurn()">Jouer le Tour</button>
+    </div>
+    <div id="dice-results"></div>
+    <div id="start-game" style="display: none;">
+        <button onclick="startGame()">Démarrer le Jeu</button>
+    </div>
+    <script src="main.js"></script>
+	<script src="event.js"></script>
+	<script src="utils.js"></script>
+	<script src="dice.js"></script>
+	<script src="cards.js"></script>
+	<script src="ia.js"></script>
+	<script src="begin.js"></script>
+	<script src="updates.js"></script>
+	
+</body>
+</html>
