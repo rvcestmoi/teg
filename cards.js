@@ -15,12 +15,13 @@ function displayCards() {
             <div class="progress-bar">
                 <div class="progress" style="width:${(card.progress / card.maxProgress) * 100}%">${card.progress}/${card.maxProgress}</div>
             </div>
-            <button onclick="takeCard(${index})">Take Card</button>
+            <button onclick="takeCard(${index})" ${cards.length < maxCardsOnBoard ? 'disabled' : ''}>Take Card</button>
         `;
         div.dataset.index = index;
         cardsDiv.appendChild(div);
     });
 }
+
 
 function displayNextCardOptions(initial = false) {
     const nextCardsDiv = document.getElementById('next-cards');
@@ -82,29 +83,36 @@ function takeCard(index) {
     cards.splice(index, 1); // Enlever la carte
     displayCards(); // Mettre à jour l'affichage après avoir pris une carte
     displayNextCardOptions(); // Afficher les options pour la carte suivante
-    replaceCardAt(index); // Remplacer la carte à la position prise
     updateIaShipsOnBoard(); // Mettre à jour l'affichage des vaisseaux IA sur le plateau
 }
 
+
 function selectNextCard(index, initial = false) {
-    // Cette fonction est utilisée pour la sélection initiale des cartes et pour remplacer une carte prise
     if (initial) {
         cards.push(availableCards[index]);
         availableCards.splice(index, 1); // Enlever la carte sélectionnée des cartes disponibles
         displayCards(); // Mettre à jour l'affichage avec la nouvelle carte
-        if (cards.length < 4) {
+        if (cards.length < maxCardsOnBoard) {
             displayNextCardOptions(true);
         } else {
             document.getElementById('next-card-selection').style.display = 'none'; // Cacher la sélection de cartes
             document.getElementById('start-game').style.display = 'block'; // Afficher le bouton de démarrage du jeu
         }
     } else {
-        replaceCardAt(index); // Remplacer la carte à la position prise
+        const newCard = availableCards.splice(index, 1)[0]; // Enlever la carte sélectionnée des cartes disponibles
+        cards.push(newCard); // Ajouter la nouvelle carte
+        displayCards(); // Mettre à jour l'affichage avec la nouvelle carte
+
+        if (cards.length < maxCardsOnBoard) {
+            displayNextCardOptions(); // Afficher les options pour les cartes suivantes
+        } else {
+            document.getElementById('next-card-selection').style.display = 'none'; // Cacher la sélection de cartes
+        }
     }
 }
 
+
 function replaceCardAt(position) {
-    // Afficher la sélection de cartes pour remplacer la carte prise à une position spécifique
     const nextCardsDiv = document.getElementById('next-cards');
     nextCardsDiv.innerHTML = '';
     availableCards.forEach((card, index) => {
@@ -131,7 +139,6 @@ function replaceCardAt(position) {
 }
 
 function selectReplacementCard(index, position) {
-    // Remplacer la carte à la position spécifique
     const newCard = availableCards.splice(index, 1)[0]; // Enlever la carte sélectionnée des cartes disponibles
     cards.splice(position, 0, newCard); // Insérer la nouvelle carte à la position spécifique
     displayCards(); // Mettre à jour l'affichage avec la nouvelle carte

@@ -1,3 +1,4 @@
+// Fonctions de Gestion des Dés
 function rollDie() {
     const roll = Math.floor(Math.random() * diceFaces.length);
     const result = diceFaces[roll];
