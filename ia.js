@@ -66,32 +66,45 @@ function advanceEconomy() {
 }
 
 function attack() {
+    const attackMessageDiv = document.getElementById('attack-message');
+    let message = '';
+
     if (colonizationLevel === 1) {
-        alert("Attaquer : Enlever 1 Énergie");
+        message = "Attaquer : Enlever 1 Énergie";
         energy = Math.max(0, energy - 1);
     } else if (colonizationLevel === 2) {
-        alert("Attaquer : Ajouter 2 Culture à l'IA");
+        message = "Attaquer : Ajouter 2 Culture à l'IA";
         culture = Math.min(maxResources, culture + 2);
     } else if (colonizationLevel === 3) {
-        alert("Attaquer : Reculer un vaisseau d'une case");
+        message = "Attaquer : Reculer un vaisseau d'une case";
         movePlayerShipBack(1);
     } else if (colonizationLevel === 4) {
-        alert("Attaquer : Vous perdez un dé pour 1 tour");
+        message = "Attaquer : Vous perdez un dé pour 1 tour";
         playerDice = Math.max(1, playerDice - 1);
         setTimeout(() => {
             playerDice = 5; // Réinitialiser le nombre de dés du joueur après un tour
-        }, 5000); // Ajuster le temps si nécessaire
+        }, 5000); // Ajuster le délai si nécessaire
     } else if (colonizationLevel === 5) {
-        alert("Attaquer : Reculer tous vos vaisseaux d'une case");
+        message = "Attaquer : Reculer tous vos vaisseaux d'une case";
         movePlayerShipBack(iaShips);
     }
+
+    attackMessageDiv.textContent = message;
+    attackMessageDiv.style.display = 'block';
+
+    // Masquer le message après un certain délai, si souhaité
+    setTimeout(() => {
+        attackMessageDiv.style.display = 'none';
+    }, 5000); // 5 secondes par exemple
+
     updateResources();
 }
 
 function movePlayerShipBack(spaces) {
-    // Logique pour reculer les vaisseaux du joueur du nombre de cases spécifié
-    // Implémenter la logique selon les règles et la structure du plateau de votre jeu
+    // Logique pour reculer les vaisseaux du joueur d'un certain nombre de cases
+    // Implémentez la logique selon les règles de votre jeu et la structure du plateau
 }
+
 
 function endIaTurn() {
     if (energy >= maxResources) {
