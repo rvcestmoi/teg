@@ -123,10 +123,13 @@
     <h1>Tiny Epic Galaxy - Automate</h1>
     <div id="game-board">
         <div class="cards-container" id="cards-in-play"></div>
+		
         <div id="next-card-selection" style="display: none;">
+		
             <h3>Sélectionner une carte de remplacement :</h3>
+			<input type="text" id="search-bar" placeholder="Rechercher une carte..." oninput="filterCards()">
             <div id="next-cards"></div>
-            <input type="text" id="search-bar" placeholder="Rechercher une carte..." oninput="filterCards()">
+            
         </div>
         <div class="container">
             <div id="dice-actions">
