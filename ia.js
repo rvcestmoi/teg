@@ -73,8 +73,9 @@ function attack() {
         message = "Attaquer : Enlever 1 Énergie";
         energy = Math.max(0, energy - 1);
     } else if (colonizationLevel === 2) {
-        message = "Attaquer : Ajouter 2 Culture à l'IA";
+        // Ajout direct de 2 points de culture à l'IA sans afficher un message
         culture = Math.min(maxResources, culture + 2);
+		message = "L'automa gagne 2 Cultures";
     } else if (colonizationLevel === 3) {
         message = "Attaquer : Reculer un vaisseau d'une case";
         movePlayerShipBack(1);
@@ -89,16 +90,24 @@ function attack() {
         movePlayerShipBack(iaShips);
     }
 
-    attackMessageDiv.textContent = message;
-    attackMessageDiv.style.display = 'block';
+    if (message) {
+        attackMessageDiv.textContent = message;
+        attackMessageDiv.style.display = 'block';
 
-    // Masquer le message après un certain délai, si souhaité
-    setTimeout(() => {
-        attackMessageDiv.style.display = 'none';
-    }, 5000); // 5 secondes par exemple
+        // Masquer le message après un certain délai, si souhaité
+        setTimeout(() => {
+            attackMessageDiv.style.display = 'none';
+        }, 5000); // 5 secondes par exemple
+    }
 
     updateResources();
 }
+
+function movePlayerShipBack(spaces) {
+    // Logique pour reculer les vaisseaux du joueur d'un certain nombre de cases
+    // Implémentez la logique selon les règles de votre jeu et la structure du plateau
+}
+
 
 function movePlayerShipBack(spaces) {
     // Logique pour reculer les vaisseaux du joueur d'un certain nombre de cases
