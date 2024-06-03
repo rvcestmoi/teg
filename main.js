@@ -37,6 +37,16 @@ const availableCards = [
 	{ name: 'Jac110912', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 5, progress: 0, maxProgress: 5, iaShip: false },
 	{ name: 'Jakks', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 1, progress: 0, maxProgress: 2, iaShip: false },
 	{ name: 'Jorg', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Kwidow', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false }
+	{ name: 'Kwidow', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'LaTorres', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+	{ name: 'Leandra', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+	{ name: 'Lureena', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+	{ name: 'Maia', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 5, progress: 0, maxProgress: 5, iaShip: false },
+	{ name: 'Mared', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+	{ name: 'Mj123210', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+	{ name: 'Kwidow', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nakagawakozi', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false }
+	
 	
 ];
