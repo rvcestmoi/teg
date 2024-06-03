@@ -2,14 +2,16 @@
 
 function displayCards() {
     const cardsDiv = document.getElementById('cards-in-play');
-    cardsDiv.innerHTML = '<h3>Cards in Play:</h3>';
+    cardsDiv.innerHTML = '';
     cards.forEach((card, index) => {
         const div = document.createElement('div');
         div.className = 'card';
+        div.dataset.index = index; // Ajouter data-index pour chaque carte
         let shipIndicator = card.iaShip ? " <span style='color: red;'>🚀</span> " : "";
         div.innerHTML = `
             <strong>${card.name}${shipIndicator}</strong><br>
-            Type: ${card.type}/Col.: ${card.colonizationType}<br>            
+            Type: ${card.type}<br>
+            Colonization: ${card.colonizationType}<br>
             Points: ${card.points}<br>
             Progress: ${card.progress}/${card.maxProgress}
             <div class="progress-bar">
@@ -17,24 +19,39 @@ function displayCards() {
             </div>
             <button onclick="takeCard(${index})" ${cards.length < maxCardsOnBoard ? 'disabled' : ''}>Take Card</button>
         `;
-        div.dataset.index = index;
         cardsDiv.appendChild(div);
     });
 
     updatePlayTurnButton();
 }
 
+
 function takeCard(index) {
     const takenCard = cards[index]; // Enregistrer la carte prise
+    const cardElement = document.querySelector(`[data-index="${index}"]`);
+
     if (takenCard.iaShip) {
         iaShips++; // Retourner le vaisseau au plateau de l'IA
     }
-    cards.splice(index, 1); // Enlever la carte
-    displayCards(); // Mettre à jour l'affichage après avoir pris une carte
-    replaceCardAt(index); // Afficher les options pour la carte suivante à la même position
-    updateIaShipsOnBoard(); // Mettre à jour l'affichage des vaisseaux IA sur le plateau
-    updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
+
+    if (cardElement) {
+        // Ajouter la classe d'animation
+        cardElement.classList.add('shrink-and-fade');
+
+        // Attendre la fin de l'animation avant de supprimer la carte
+        setTimeout(() => {
+            cards.splice(index, 1); // Enlever la carte
+            displayCards(); // Mettre à jour l'affichage après avoir pris une carte
+            replaceCardAt(index); // Afficher les options pour la carte suivante à la même position
+            updateIaShipsOnBoard(); // Mettre à jour l'affichage des vaisseaux IA sur le plateau
+            updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
+        }, 700); // Durée de l'animation en millisecondes
+    } else {
+        console.log("Élément de carte non trouvé pour index:", index);
+    }
 }
+
+
 
 
 function displayNextCardOptions(initial = false) {
@@ -96,7 +113,6 @@ function selectNextCard(index, initial = false) {
             displayNextCardOptions(true);
         } else {
             document.getElementById('next-card-selection').style.display = 'none'; // Cacher la sélection de cartes
-            document.getElementById('start-game').style.display = 'block'; // Afficher le bouton de démarrage du jeu
         }
     } else {
         const newCard = availableCards.splice(index, 1)[0]; // Enlever la carte sélectionnée des cartes disponibles

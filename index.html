@@ -106,7 +106,7 @@
         }
 
         button:disabled {
-            background-color: #gray;
+            background-color: gray;
             cursor: not-allowed;
         }
 
@@ -117,17 +117,33 @@
             display: none;
             margin-top: 10px;
         }
+
+		.shrink-and-fade {
+			animation: shrinkFadeOut 1s forwards;
+		}
+
+		@keyframes shrinkFadeOut {
+			0% {
+				opacity: 1;
+				transform: scale(1);
+			}
+			100% {
+				opacity: 0;
+				transform: scale(0);
+			}
+		}
+
     </style>
 </head>
 <body>
     <h1>Tiny Epic Galaxy - Automate</h1>
     <div id="game-board">
         <div class="cards-container" id="cards-in-play"></div>
-		
+        
         <div id="next-card-selection" style="display: none;">
-		
+        
             <h3>Sélectionner une carte de remplacement :</h3>
-			<input type="text" id="search-bar" placeholder="Rechercher une carte..." oninput="filterCards()">
+            <input type="text" id="search-bar" placeholder="Rechercher une carte..." oninput="filterCards()">
             <div id="next-cards"></div>
             
         </div>
