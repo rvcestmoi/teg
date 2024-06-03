@@ -31,10 +31,11 @@ function takeCard(index) {
     }
     cards.splice(index, 1); // Enlever la carte
     displayCards(); // Mettre à jour l'affichage après avoir pris une carte
-    displayNextCardOptions(); // Afficher les options pour la carte suivante
+    replaceCardAt(index); // Afficher les options pour la carte suivante à la même position
     updateIaShipsOnBoard(); // Mettre à jour l'affichage des vaisseaux IA sur le plateau
     updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
 }
+
 
 function displayNextCardOptions(initial = false) {
     const nextCardsDiv = document.getElementById('next-cards');
@@ -121,7 +122,6 @@ function replaceCardAt(position) {
         let shipIndicator = card.iaShip ? " <span style='color: red;'>🚀</span> " : "";
         div.innerHTML = `
             <strong>${card.name}${shipIndicator}</strong><br>
-            ${card.effect}<br>
             Type: ${card.type}<br>
             Colonization: ${card.colonizationType}<br>
             Points: ${card.points}<br>
@@ -139,6 +139,7 @@ function replaceCardAt(position) {
     updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
 }
 
+
 function selectReplacementCard(index, position) {
     const newCard = availableCards.splice(index, 1)[0]; // Enlever la carte sélectionnée des cartes disponibles
     cards.splice(position, 0, newCard); // Insérer la nouvelle carte à la position spécifique
@@ -151,6 +152,7 @@ function selectReplacementCard(index, position) {
     document.getElementById('next-card-selection').style.display = 'none'; // Cacher la sélection de cartes
     updatePlayTurnButton(); // Mettre à jour le bouton "Jouer le tour"
 }
+
 
 function updatePlayTurnButton() {
     const playTurnButton = document.getElementById('play-turn');
