@@ -135,11 +135,12 @@ function askPlayerToPlayTurn() {
     // Réinitialiser diceResults et currentDie pour permettre le tour suivant
     diceResults = [];
     currentDie = 0;
-    extraRollsUsed = false; // Réinitialiser l'utilisation des lancers supplémentaires pour le tour suivant
-    if (extraRollsRemaining === 0) {
-        culture = 0; // Réinitialiser la culture seulement après avoir utilisé tous les lancers supplémentaires
-        updateResources();
+    
+    if (extraRollsRemaining === 0 && extraRollsUsed) {
+        culture = 0; // Réinitialiser la culture seulement après avoir utilisé tous les lancers supplémentaires        
     }
+	extraRollsUsed = false; // Réinitialiser l'utilisation des lancers supplémentaires pour le tour suivant
+	updateResources();
 }
 
 function moveIaShip() {
