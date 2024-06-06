@@ -13,6 +13,7 @@ function updateResources() {
     cultureProgress.textContent = culture;
 }
 
+
 function updateIaShipsOnBoard() {
     document.getElementById('ia-ships-on-board').textContent = iaShips;
 }

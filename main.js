@@ -46,7 +46,24 @@ const availableCards = [
 	{ name: 'Mj123210', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
 	{ name: 'Kwidow', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
 	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nakagawakozi', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false }
+	{ name: 'Nakagawakozi', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nibiru', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'Omicron Fenzi', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Padraigin3110', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'PembertoniaMajor', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Piedes', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'Sargus36***', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	
 	
 	
 ];

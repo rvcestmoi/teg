@@ -18,12 +18,15 @@ function displayCards() {
                 <div class="progress" style="width:${(card.progress / card.maxProgress) * 100}%">${card.progress}/${card.maxProgress}</div>
             </div>
             <button onclick="takeCard(${index})" ${cards.length < maxCardsOnBoard ? 'disabled' : ''}>Take Card</button>
+            <button onclick="decreaseProgress(${index})">-1</button>
         `;
         cardsDiv.appendChild(div);
     });
 
     updatePlayTurnButton();
 }
+
+
 
 
 function takeCard(index) {

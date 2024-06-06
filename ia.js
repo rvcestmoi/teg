@@ -71,7 +71,6 @@ function attack() {
 
     if (colonizationLevel === 1) {
         message = "Attaquer : Enlever 1 Énergie";
-        energy = Math.max(0, energy - 1);
     } else if (colonizationLevel === 2) {
         // Ajout direct de 2 points de culture à l'IA sans afficher un message
         culture = Math.min(maxResources, culture + 2);
@@ -87,7 +86,6 @@ function attack() {
         }, 5000); // Ajuster le délai si nécessaire
     } else if (colonizationLevel === 5) {
         message = "Attaquer : Reculer tous vos vaisseaux d'une case";
-        movePlayerShipBack(iaShips);
     }
 
     if (message) {
@@ -153,4 +151,33 @@ function moveIaShip() {
         }
     }
 }
+
+function decreaseProgress(index) {
+    if (cards[index].progress > 0) {
+        cards[index].progress--;
+        displayCards();
+    }
+}
+
+function decreaseEnergy() {
+    if (energy > 0) {
+        energy--;
+        updateResources();
+    }
+}
+
+function decreaseCulture() {
+    if (culture > 0) {
+        culture--;
+        updateResources();
+    }
+}
+
+function decreaseColonizationLevel() {
+    if (colonizationLevel > 1) {
+        colonizationLevel--;
+        updateColonizationLevel();
+    }
+}
+
 

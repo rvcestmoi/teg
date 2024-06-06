@@ -91,19 +91,31 @@
             margin-top: 20px;
         }
 
-        button {
-            background-color: #4caf50;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 2px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
+		button {
+			background-color: #4caf50;
+			border: none;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 10px 2px;
+			cursor: pointer;
+			border-radius: 4px;
+		}
+
+		button:disabled {
+			background-color: gray;
+			cursor: not-allowed;
+		}
+
+		button.decrease-progress {
+			background-color: #f44336; /* Red color for the decrease button */
+			padding: 5px 10px;
+			font-size: 14px;
+		}
+
 
         button:disabled {
             background-color: gray;
@@ -158,8 +170,12 @@
                 <h3>Vaisseaux IA sur le plateau : <span id="ia-ships-on-board"></span></h3>
                 <h3>Points de Victoire : <span id="victory-points"></span></h3>
                 <h3>Niveau de Colonisation : <span id="colonization-level"></span></h3>
+				<button class="decrease-progress" onclick="decreaseColonizationLevel()">-1</button>
                 <h3>Énergie : <div id="energy-progress" class="progress-bar"><div class="progress"></div></div></h3>
+				<button class="decrease-progress" onclick="decreaseEnergy()">-1</button>
                 <h3>Culture : <div id="culture-progress" class="progress-bar"><div class="progress"></div></div></h3>
+				<button class="decrease-progress" onclick="decreaseCulture()">-1</button>
+				
             </div>
         </div>
 
