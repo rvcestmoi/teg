@@ -130,7 +130,7 @@ function endIaTurn() {
     } else {
         askPlayerToPlayTurn();
     }
-    updateVictoryPoints(); // Recalculer les points de victoire
+    updateVictoryPoints(); // Recalculer les points de victo
 }
 
 
