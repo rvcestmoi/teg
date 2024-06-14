@@ -136,7 +136,7 @@ function endIaTurn() {
 
 
 function askPlayerToPlayTurn() {
-    alert("All dice have been rolled. It's your turn to play!");
+    alert("Tous les dés sont lancés, à votre tour !");
     // Réinitialiser diceResults et currentDie pour permettre le tour suivant
     diceResults = [];
     currentDie = 0;

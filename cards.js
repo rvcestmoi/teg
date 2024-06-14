@@ -17,7 +17,7 @@ function displayCards() {
             <div class="progress-bar">
                 <div class="progress" style="width:${(card.progress / card.maxProgress) * 100}%">${card.progress}/${card.maxProgress}</div>
             </div>
-            <button onclick="takeCard(${index})" ${cards.length < maxCardsOnBoard ? 'disabled' : ''}>Take Card</button>
+            <button onclick="takeCard(${index})" ${cards.length < maxCardsOnBoard ? 'disabled' : ''}>Prendre Carte</button>
             <button onclick="decreaseProgress(${index})">-1</button>
         `;
         cardsDiv.appendChild(div);
@@ -72,7 +72,7 @@ function displayNextCardOptions(initial = false) {
             <div class="progress-bar">
                 <div class="progress" style="width:${(card.progress / card.maxProgress) * 100}%">${card.progress}/${card.maxProgress}</div>
             </div>
-            <button onclick="selectNextCard(${index}, ${initial})">Select Card</button>
+            <button onclick="selectNextCard(${index}, ${initial})">Select. carte</button>
         `;
         div.dataset.index = index;
         nextCardsDiv.appendChild(div);
