@@ -19,9 +19,36 @@ function updateIaShipsOnBoard() {
 }
 
 function updateVictoryPoints() {
+    const victoryPoints = calculateVictoryPoints();
     document.getElementById('victory-points').textContent = victoryPoints;
 }
+
 
 function updateColonizationLevel() {
     document.getElementById('colonization-level').textContent = colonizationLevel;
 }
+
+function calculateVictoryPoints() {
+    let totalPoints = 0;
+
+    // Points de victoire des cartes colonisées
+    totalPoints += colonizedCardsPoints.reduce((sum, points) => sum + points, 0);
+
+    // Points de victoire bonus en fonction du niveau de colonisation
+    if (colonizationLevel >= 2) {
+        totalPoints += 2; // Bonus pour le niveau 2
+    }
+    if (colonizationLevel >= 3) {
+        totalPoints += 2; // Bonus supplémentaire pour le niveau 3
+    }
+    if (colonizationLevel >= 4) {
+        totalPoints += 2; // Bonus supplémentaire pour le niveau 4
+    }
+    if (colonizationLevel >= 5) {
+        totalPoints += 3; // Bonus supplémentaire pour le niveau 5
+    }
+
+    return totalPoints;
+}
+
+

@@ -36,15 +36,16 @@ function advanceDiplomacy() {
         if (card.iaShip && card.colonizationType === 'Diplomatie') {
             card.progress = Math.min(card.progress + 1, card.maxProgress);
             if (card.progress >= card.maxProgress) {
-                victoryPoints += card.points;
-                updateVictoryPoints();
+                colonizedCardsPoints.push(card.points); // Enregistrer les points de la carte colonisée
                 card.iaShip = false;
                 iaShips++;
-                replaceCardAt(cards.indexOf(card)); // Remplacer la carte à la position colonisée
-                cards.splice(cards.indexOf(card), 1);
+                const cardIndex = cards.indexOf(card);
+                replaceCardAt(cardIndex); // Remplacer la carte à la position colonisée
+                cards.splice(cardIndex, 1);
             }
         }
     }
+    updateVictoryPoints(); // Recalculer les points de victoire
     displayCards();
 }
 
@@ -53,17 +54,19 @@ function advanceEconomy() {
         if (card.iaShip && card.colonizationType === 'Économie') {
             card.progress = Math.min(card.progress + 1, card.maxProgress);
             if (card.progress >= card.maxProgress) {
-                victoryPoints += card.points;
-                updateVictoryPoints();
+                colonizedCardsPoints.push(card.points); // Enregistrer les points de la carte colonisée
                 card.iaShip = false;
                 iaShips++;
-                replaceCardAt(cards.indexOf(card)); // Remplacer la carte à la position colonisée
-                cards.splice(cards.indexOf(card), 1);
+                const cardIndex = cards.indexOf(card);
+                replaceCardAt(cardIndex); // Remplacer la carte à la position colonisée
+                cards.splice(cardIndex, 1);
             }
         }
     }
+    updateVictoryPoints(); // Recalculer les points de victoire
     displayCards();
 }
+
 
 function attack() {
     const attackMessageDiv = document.getElementById('attack-message');
@@ -120,13 +123,17 @@ function endIaTurn() {
         updateColonizationLevel();
     }
     if (culture >= maxResources && !extraRollsUsed) {
-        alert("The IA gains 3 extra dice rolls due to having at least 5 culture!");
+        alert("L'IA gagne 3 lancers de dés supplémentaires grâce à au moins 5 points de culture !");
         extraRollsUsed = true;
         extraRollsRemaining = 3;
+        playExtraDice();
     } else {
         askPlayerToPlayTurn();
     }
+    updateVictoryPoints(); // Recalculer les points de victoire
 }
+
+
 
 function askPlayerToPlayTurn() {
     alert("All dice have been rolled. It's your turn to play!");
@@ -177,7 +184,9 @@ function decreaseColonizationLevel() {
     if (colonizationLevel > 1) {
         colonizationLevel--;
         updateColonizationLevel();
+        updateVictoryPoints(); // Recalculer les points de victoire
     }
 }
+
 
 

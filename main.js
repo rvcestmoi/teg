@@ -14,6 +14,8 @@ let extraRollsRemaining = 0; // Pour suivre le nombre de lancers supplémentaire
 let playerDice = 5; // Nombre de dés que le joueur peut lancer
 // Ajouter une variable pour suivre si le dé a été relancé
 let rerollUsed = false;
+let colonizedCardsPoints = [];
+
 
 const maxCardsOnBoard = 4;
 
@@ -52,18 +54,14 @@ const availableCards = [
 	{ name: 'Padraigin3110', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
 	{ name: 'PembertoniaMajor', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
 	{ name: 'Piedes', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
-	{ name: 'Sargus36***', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	{ name: 'Nagato', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
-	
-	
-	
+	{ name: 'Sargus36', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 5, progress: 0, maxProgress: 5, iaShip: false },
+	{ name: 'Shouhua', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'TerraBettia', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 7, progress: 0, maxProgress: 6, iaShip: false },
+	{ name: 'Tifnod', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+	{ name: 'UmbraForum', type: 'Culture', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 3, progress: 0, maxProgress: 4, iaShip: false },
+	{ name: 'ViciKs156', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+	{ name: 'Vizcarra', type: 'Énergie', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 1, progress: 0, maxProgress: 2, iaShip: false },
+	{ name: 'Walsfeo', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 5, progress: 0, maxProgress: 5, iaShip: false },
+	{ name: 'Zalax', type: 'Culture', colonizationType: 'Diplomatie', effect: 'Gain 3 Victory Points', points: 2, progress: 0, maxProgress: 3, iaShip: false },
+	{ name: 'Zavodnick', type: 'Énergie', colonizationType: 'Économie', effect: 'Gain 3 Victory Points', points: 5, progress: 0, maxProgress: 5, iaShip: false }	
 ];
