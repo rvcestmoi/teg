@@ -57,7 +57,7 @@ function rollExtraDie() {
 
 function displayDiceResults() {
     const diceResultsDiv = document.getElementById('dice-results');
-    diceResultsDiv.innerHTML = '<h3>Dice Results:</h3>';
+    diceResultsDiv.innerHTML = '<h3>Resultats:</h3>';
     diceResults.forEach(result => {
         const div = document.createElement('div');
         div.textContent = result;
